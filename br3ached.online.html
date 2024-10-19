@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ridden Away in the Books</title>
+    <style>
+        /* Ensure the body takes full screen */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://i.pinimg.com/originals/aa/0d/fa/aa0dfa75bef706c01083cb30c4f0226f.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Text Styling */
+        .text {
+            font-size: 80px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+            position: relative;
+            animation: bounce 2s ease infinite, textGlow 1.5s alternate infinite;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 35px rgba(255, 255, 255, 0.9), 0 0 45px rgba(255, 255, 255, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        /* Video Styling */
+        #video-container {
+            position: relative;
+            width: 60%;
+            max-width: 800px;
+            height: auto;
+            display: none; /* Initially hidden */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+        }
+
+        /* Button Styling */
+        .video-btn, .close-video-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: black;
+            color: white;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+            transition: background-color 0.3s ease;
+        }
+
+        .video-btn:hover, .close-video-btn:hover {
+            background-color: #555;
+        }
+
+        /* Close Video Button Positioned on the Left */
+        .close-video-btn {
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            display: none;
+        }
+
+        /* Social buttons */
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 50px; /* Moves the buttons down */
+        }
+
+        .social-buttons img {
+            width: 60px; /* Increase the size of the icons */
+            height: 60px;
+            margin-right: 20px; /* Space between buttons */
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .social-buttons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Roblox button specifically */
+        .roblox-button {
+            margin-left: 20px; /* Adds space between buttons */
+        }
+    </style>
+</head>
+<body>
+    <!-- Text with animation and styling -->
+    <div class="text">riddenawayinthebooks</div>
+
+    <!-- Video and buttons will appear once the "Video" button is clicked -->
+    <div id="video-container">
+        <video id="video" controls>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Close video button -->
+        <button class="close-video-btn" id="close-video-btn">Close Video</button>
+    </div>
+
+    <!-- Button to display the video -->
+    <button class="video-btn" id="video-btn">Video</button>
+
+    <!-- Social buttons -->
+    <div class="social-buttons">
+        <!-- Instagram button -->
+        <a href="https://www.instagram.com/riddenawayinthebooks" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+
+        <!-- Roblox button with new icon -->
+        <a href="https://www.roblox.com/users/7446751488/profile" target="_blank" class="roblox-button">
+            <img src="https://styles.redditmedia.com/t5_2rnsh/styles/communityIcon_zh277xaatqt91.png" alt="Roblox">
+        </a>
+    </div>
+
+    <script>
+        // Get elements
+        const videoContainer = document.getElementById('video-container');
+        const video = document.getElementById('video');
+        const videoBtn = document.getElementById('video-btn');
+        const closeVideoBtn = document.getElementById('close-video-btn');
+
+        // When "Video" button is clicked
+        videoBtn.addEventListener('click', function () {
+            videoContainer.style.display = 'block';  // Show the video container
+            video.style.display = 'block';           // Show the video
+            closeVideoBtn.style.display = 'inline-block';  // Show the close button
+        });
+
+        // When "Close Video" button is clicked
+        closeVideoBtn.addEventListener('click', function () {
+            videoContainer.style.display = 'none';   // Hide the video container
+            video.style.display = 'none';            // Hide the video
+            closeVideoBtn.style.display = 'none';    // Hide the close button
+        });
+    </script>
+</body>
+</html>

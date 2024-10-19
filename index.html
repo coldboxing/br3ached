@@ -25,6 +25,25 @@
             color: white;
         }
 
+        /* Circular image in the top-left corner */
+        .circle-img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;  /* Made the circle image even bigger */
+            height: 200px;  /* Made the circle image even bigger */
+            border-radius: 50%; /* Makes the image circular */
+            overflow: hidden;
+            border: 3px solid white; /* Optional: adds a border around the circle */
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Optional: adds a shadow effect */
+        }
+
+        .circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the image covers the circular div */
+        }
+
         /* Text Styling */
         .text {
             font-size: 5vw;
@@ -163,15 +182,22 @@
                 padding: 8px 16px;
                 font-size: 14px;
             }
-        }
 
-        /* Discord Widget Styling */
-        .discord-widget {
-            margin-top: 20px;
+            /* Adjust circle image size on mobile */
+            .circle-img {
+                width: 180px;
+                height: 180px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Circular Image in the top-left corner -->
+    <div class="circle-img">
+        <!-- Replace with your local image file (e.g., "circle-image.jpg") -->
+        <img src="circle-image.jpg" alt="Circle Image">
+    </div>
+
     <!-- Text with animation and styling -->
     <div class="text">riddenawayinthebooks</div>
 
@@ -195,11 +221,6 @@
     <!-- Button to display the video -->
     <button class="video-btn" id="video-btn">Video</button>
 
-    <!-- Discord Widget -->
-    <div class="discord-widget">
-        <iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
-    </div>
-
     <!-- Social buttons -->
     <div class="social-buttons">
         <!-- Instagram button -->
@@ -214,7 +235,6 @@
     </div>
 
     <script>
-        // Get elements
         const videoContainer = document.getElementById('video-container');
         const video = document.getElementById('video');
         const videoBtn = document.getElementById('video-btn');

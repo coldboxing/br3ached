@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fraudbosskay</title>
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="https://png.pngtree.com/png-vector/20190417/ourmid/pngtree-vector-shield-icon-png-image_947000.jpg">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 
     <style>
         /* Ensure the body takes full screen */
@@ -30,18 +30,18 @@
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 200px;  /* Made the circle image even bigger */
-            height: 200px;  /* Made the circle image even bigger */
-            border-radius: 50%; /* Makes the image circular */
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             overflow: hidden;
-            border: 3px solid white; /* Optional: adds a border around the circle */
-            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Optional: adds a shadow effect */
+            border: 3px solid white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
         }
 
         .circle-img img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the image covers the circular div */
+            object-fit: cover;
         }
 
         /* Text Styling */
@@ -88,27 +88,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 999; /* Ensure it appears above other elements */
+            z-index: 999;
             text-align: center;
-            cursor: pointer; /* Change cursor to pointer */
+            cursor: pointer;
         }
 
         /* Typing animation for the "Click to Enter" text */
         #click-to-enter {
-            color: red; /* Change text color to red */
+            color: red;
             font-size: 2rem;
-            white-space: nowrap; /* Prevents wrapping */
-            overflow: hidden; /* Hides overflow */
-            border-right: .15em solid red; /* Typing cursor effect */
-        }
-
-        /* Audio element (hidden controls) */
-        #background-music {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
-            display: none; /* Hide the audio controls */
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid red;
         }
 
         /* Social buttons styling */
@@ -116,18 +107,38 @@
             position: absolute;
             bottom: 20px;
             display: flex;
-            gap: 10px; /* Space between buttons */
-            margin-top: 20px; /* Space above the buttons */
+            gap: 10px;
+            margin-top: 20px;
         }
 
         .social-buttons img {
-            width: 40px; /* Adjust size of social media icons */
+            width: 40px;
             height: 40px;
             transition: transform 0.3s;
         }
 
         .social-buttons img:hover {
-            transform: scale(1.1); /* Slight zoom effect on hover */
+            transform: scale(1.1);
+        }
+
+        /* Download button at the bottom left */
+        .download-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-size: 1.2rem;
+            background-color: transparent;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: white;
+            color: black;
         }
 
         /* Mobile responsiveness */
@@ -136,14 +147,18 @@
                 font-size: 8vw;
             }
 
-            /* Adjust click-to-enter text size */
             #click-to-enter {
-                font-size: 1.5rem; /* Smaller font size for mobile */
+                font-size: 1.5rem;
             }
 
             .social-buttons img {
-                width: 30px; /* Smaller icons for mobile */
+                width: 30px;
                 height: 30px;
+            }
+
+            .download-button {
+                font-size: 1rem;
+                padding: 8px 16px;
             }
         }
     </style>
@@ -164,17 +179,17 @@
 
     <!-- Social buttons -->
     <div class="social-buttons">
-        <!-- Instagram button -->
         <a href="https://www.instagram.com/fraudbosskay" target="_blank">
             <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
         </a>
-        <!-- Roblox button -->
         <a href="https://www.roblox.com/users/7446751488/profile" target="_blank" class="roblox-button">
             <img src="https://styles.redditmedia.com/t5_2rnsh/styles/communityIcon_zh277xaatqt91.png" alt="Roblox">
         </a>
     </div>
 
-    <!-- Audio element with controls for background music (controls hidden) -->
+    <!-- Download button at bottom left -->
+    <a href="downloads.html" class="download-button">Go to Downloads</a>
+
     <audio id="background-music" autoplay loop>
         <source src="background-music.mp3" type="audio/mpeg">
         <source src="background-music.ogg" type="audio/ogg">
@@ -182,7 +197,6 @@
     </audio>
 
     <script>
-        // Function to simulate typing effect
         function typeText(text, elementId, interval) {
             const element = document.getElementById(elementId);
             let index = 0;
@@ -197,22 +211,18 @@
             }, interval);
         }
 
-        // Function to play the music and hide the black screen
         function startMusic() {
             const blackScreen = document.getElementById('black-screen');
             const music = document.getElementById('background-music');
 
-            // Hide the black screen and play music
             blackScreen.style.display = 'none';
             music.play();
         }
 
-        // Start typing effect on page load
         window.onload = () => {
-            typeText("C L I C K   T O   E N T E R", "click-to-enter", 150); // Adjust speed as necessary
+            typeText("C L I C K   T O   E N T E R", "click-to-enter", 150);
         };
 
-        // Trigger the startMusic function when the black screen is clicked
         document.getElementById('black-screen').onclick = startMusic;
     </script>
 </body>

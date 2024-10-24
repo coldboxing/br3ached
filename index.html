@@ -147,6 +147,27 @@
             color: black;
         }
 
+        /* Discord button styling */
+        .discord-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+            margin-top: 15px;
+            background-color: transparent;
+            border: none;
+        }
+
+        .discord-button img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .discord-button span {
+            color: white;
+            font-size: 1.2rem;
+        }
+
         /* Mobile responsiveness */
         @media only screen and (max-width: 768px) {
             .text {
@@ -166,6 +187,11 @@
                 font-size: 1rem;
                 padding: 8px 16px;
             }
+
+            .discord-button img {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -182,6 +208,12 @@
 
     <!-- Text with animation and styling -->
     <div class="text">fraudbosskay</div>
+
+    <!-- Discord Button -->
+    <a href="https://discord.gg/SQYPexVjJ6" target="_blank" class="discord-button">
+        <img src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Discord Icon">
+        <span>Join Our Discord</span>
+    </a>
 
     <!-- Social buttons -->
     <div class="social-buttons">

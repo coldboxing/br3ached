@@ -121,11 +121,17 @@
             transform: scale(1.1);
         }
 
-        /* Download button at the bottom left */
-        .download-button {
+        /* Download and Pedo Doxes buttons at the top right */
+        .buttons-container {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row-reverse; /* Align buttons from right to left */
+            gap: 10px;
+        }
+
+        .button {
             color: white;
             font-size: 1.2rem;
             background-color: transparent;
@@ -136,7 +142,7 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        .download-button:hover {
+        .button:hover {
             background-color: white;
             color: black;
         }
@@ -156,7 +162,7 @@
                 height: 30px;
             }
 
-            .download-button {
+            .button {
                 font-size: 1rem;
                 padding: 8px 16px;
             }
@@ -187,8 +193,11 @@
         </a>
     </div>
 
-    <!-- Download button at bottom left -->
-    <a href="downloads.html" class="download-button">Go to Downloads</a>
+    <!-- Buttons container at the top right -->
+    <div class="buttons-container">
+        <a href="downloads.html" class="button">Go to Downloads</a>
+        <a href="pedo-doxes.html" class="button">Pedo Doxes</a>
+    </div>
 
     <audio id="background-music" autoplay loop>
         <source src="background-music.mp3" type="audio/mpeg">

@@ -1,1 +1,265 @@
-let the sluts be sluts, move on with your life.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fraudbosskay</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        /* Ensure the body takes full screen */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('https://wallpapers.com/images/hd/nature-illumination-dark-forest-3smrjrdgws01umek.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            color: white;
+        }
+
+        /* Circular image in the top-left corner */
+        .circle-img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+        }
+
+        .circle-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Text Styling */
+        .text {
+            font-size: 5vw;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+            position: relative;
+            animation: bounce 2s ease infinite, textGlow 1.5s alternate infinite;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+            }
+            50% {
+                text-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 35px rgba(255, 255, 255, 0.9), 0 0 45px rgba(255, 255, 255, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.7), 0 0 35px rgba(255, 255, 255, 0.6);
+            }
+        }
+
+        /* Black screen overlay */
+        #black-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 1); /* Fully black */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /* Typing animation for the "Click to Enter" text */
+        #click-to-enter {
+            color: red;
+            font-size: 2rem;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: .15em solid red;
+        }
+
+        /* Social buttons styling */
+        .social-buttons {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .social-buttons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s;
+        }
+
+        .social-buttons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Download and Pedo Doxes buttons at the top right */
+        .buttons-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row-reverse; /* Align buttons from right to left */
+            gap: 10px;
+        }
+
+        .button {
+            color: white;
+            font-size: 1.2rem;
+            background-color: transparent;
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* Discord button styling */
+        .discord-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 10px;
+            margin-top: 15px;
+            background-color: transparent;
+            border: none;
+        }
+
+        .discord-button img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .discord-button span {
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* Mobile responsiveness */
+        @media only screen and (max-width: 768px) {
+            .text {
+                font-size: 8vw;
+            }
+
+            #click-to-enter {
+                font-size: 1.5rem;
+            }
+
+            .social-buttons img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .discord-button img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Black screen overlay -->
+    <div id="black-screen">
+        <div id="click-to-enter"></div>
+    </div>
+
+    <!-- Circular Image in the top-left corner -->
+    <div class="circle-img">
+        <img src="circle-image.jpg" alt="Circle Image">
+    </div>
+
+    <!-- Text with animation and styling -->
+    <div class="text">fraudbosskay</div>
+
+
+    <!-- Social buttons -->
+    <div class="social-buttons">
+        <a href="https://www.instagram.com/fraudbosskay" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.roblox.com/users/7446751488/profile" target="_blank" class="roblox-button">
+            <img src="https://styles.redditmedia.com/t5_2rnsh/styles/communityIcon_zh277xaatqt91.png" alt="Roblox">
+        </a>
+    </div>
+
+    <!-- Buttons container at the top right -->
+    <div class="buttons-container">
+        <a href="downloads.html" class="button">Go to Downloads</a>
+        <a href="pedo-doxes.html" class="button">Pedo Doxes</a>
+    </div>
+
+    <audio id="background-music" autoplay loop>
+        <source src="background-music.mp3" type="audio/mpeg">
+        <source src="background-music.ogg" type="audio/ogg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        function typeText(text, elementId, interval) {
+            const element = document.getElementById(elementId);
+            let index = 0;
+
+            const typingInterval = setInterval(() => {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                } else {
+                    clearInterval(typingInterval);
+                }
+            }, interval);
+        }
+
+        function startMusic() {
+            const blackScreen = document.getElementById('black-screen');
+            const music = document.getElementById('background-music');
+
+            blackScreen.style.display = 'none';
+            music.play();
+        }
+
+        window.onload = () => {
+            typeText("C L I C K   T O   E N T E R", "click-to-enter", 150);
+        };
+
+        document.getElementById('black-screen').onclick = startMusic;
+    </script>
+</body>
+</html>

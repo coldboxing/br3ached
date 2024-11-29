@@ -1,1 +1,234 @@
-revamping..
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website with Click to Enter</title>
+    <style>
+        /* Full-screen black overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 1); /* Black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            font-family: Arial, sans-serif;
+            z-index: 1000;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+            pointer-events: all; /* Ensure the overlay is clickable */
+        }
+
+        /* "Click to enter" text without a box, centered */
+        .click-to-enter {
+            font-size: 30px;
+            color: white;
+            font-family: Arial, sans-serif;
+            cursor: pointer;
+            text-align: center;
+            text-transform: uppercase;
+            border: none;
+            background: none;
+            z-index: 1010; /* Ensure text is above overlay content */
+        }
+
+        /* Fade-out effect */
+        .fade-out {
+            opacity: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling while overlay is active */
+            height: 100vh;
+        }
+
+        .content {
+            opacity: 0;
+            visibility: hidden; /* Content is hidden initially */
+            transition: opacity 0.5s ease-in; /* Faster transition for content reveal */
+            position: relative;
+        }
+
+        body.show-content .content {
+            opacity: 1;
+            visibility: visible; /* Reveal content after overlay fades */
+        }
+
+        /* Full screen background */
+        body {
+            background-image: url('your-image.png'); /* Replace with your PNG file path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Box and profile image styles */
+        .blurred-box {
+            width: 75%;
+            max-width: 650px;
+            height: 350px;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(30px);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: fixed; /* Keep it fixed in the center */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the box perfectly */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding-top: 30px;
+        }
+
+        /* Profile Picture Circle */
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-bottom: 20px; /* Added small space (20px) between the image and the text */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Glowing text for "soxynet" */
+        .glowing-text {
+            font-size: 40px;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            animation: glow 1.5s ease-in-out infinite;
+            text-shadow: 
+                2px 2px 4px black,
+                -2px -2px 4px black,
+                2px -2px 4px black,
+                -2px 2px 4px black;
+            margin-top: -10px;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white; }
+            50% { text-shadow: 0 0 15px white, 0 0 25px white, 0 0 35px white, 0 0 50px white, 0 0 75px white, 0 0 90px white, 0 0 120px white; }
+            100% { text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white; }
+        }
+
+        /* Styling for the Roblox icons row */
+        .roblox-icons {
+            display: flex;
+            justify-content: space-around; /* Evenly space the icons */
+            width: 100%;
+            margin-top: 20px; /* Add some space between the text and the icons */
+        }
+
+        .roblox-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Ensures the icons are circular */
+            overflow: hidden;
+        }
+
+        .roblox-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Black overlay with text -->
+    <div class="overlay" id="overlay">
+        <div class="click-to-enter" id="enterButton">Click to enter...</div>
+    </div>
+
+    <!-- Hidden Content that will be revealed -->
+    <div class="content">
+        <!-- Profile Picture Circle and "soxynet" -->
+        <div class="blurred-box">
+            <div class="profile-pic">
+                <img src="your-pfp.jpg" alt="Profile Picture"> <!-- Replace with your profile picture -->
+            </div>
+            <div class="glowing-text">soxynet</div>
+
+            <!-- Row of Roblox icons -->
+            <div class="roblox-icons">
+                <a href="https://www.roblox.com/users/7631256514/profile" target="_blank" class="roblox-icon">
+                    <img src="roblox-icon1.png" alt="Roblox Icon 1"> <!-- Replace with actual image links -->
+                </a>
+                <a href="https://www.roblox.com/users/3574216168/profile" target="_blank" class="roblox-icon">
+                    <img src="roblox-icon2.png" alt="Roblox Icon 2"> <!-- Replace with actual image links -->
+                </a>
+                <a href="https://www.roblox.com/users/7446751488/profile" target="_blank" class="roblox-icon">
+                    <img src="roblox-icon3.png" alt="Roblox Icon 3"> <!-- Replace with actual image links -->
+                </a>
+                <a href="https://www.roblox.com/users/367626210/profile" target="_blank" class="roblox-icon">
+                    <img src="roblox-icon4.png" alt="Roblox Icon 4"> <!-- Replace with actual image links -->
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element (hidden) -->
+    <audio id="backgroundMusic" preload="auto">
+        <source src="your-music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Get elements
+        const overlay = document.getElementById("overlay");
+        const enterButton = document.getElementById("enterButton");
+        const music = document.getElementById("backgroundMusic");
+        const content = document.querySelector(".content");
+
+        // Function to fade out the overlay, start the music, and show the content
+        function handleClickToEnter() {
+            // Ensure music plays once button is clicked
+            music.play().then(() => {
+                console.log("Music is playing...");
+            }).catch((error) => {
+                console.error("Error playing music:", error);
+            });
+
+            // Start showing the content while the overlay is fading out
+            document.body.classList.add("show-content");
+
+            // Fade out the overlay and the button
+            overlay.classList.add("fade-out");
+            enterButton.classList.add("fade-out");
+
+            // Wait for the fade-out transition to finish before hiding the overlay
+            setTimeout(() => {
+                overlay.style.display = "none"; // Hide the overlay completely
+            }, 1000); // Timeout must match the transition duration
+        }
+
+        // Event listener for clicks anywhere on the screen to start the fade-out
+        overlay.addEventListener("click", () => {
+            handleClickToEnter();
+        });
+
+        // Event listener for clicking on "Click to enter" button specifically to start music
+        enterButton.addEventListener("click", () => {
+            handleClickToEnter();
+        });
+    </script>
+</body>
+</html>

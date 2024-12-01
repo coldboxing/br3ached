@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>soxynet</title>
+    <title>Website with Click to Enter</title>
     <style>
         /* Full-screen black overlay */
         .overlay {
@@ -150,6 +150,29 @@
             height: 100%;
             object-fit: cover;
         }
+
+        /* Tools Button */
+        .tools-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+            z-index: 1000;
+            display: none; /* Initially hidden */
+        }
+
+        .tools-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -185,6 +208,9 @@
         </div>
     </div>
 
+    <!-- Tools Button -->
+    <a href="roblox_cookie_to_password.html" class="tools-button" id="toolsButton">Tools</a>
+
     <!-- Audio element (hidden) -->
     <audio id="backgroundMusic" preload="auto">
         <source src="your-music.mp3" type="audio/mp3">
@@ -197,41 +223,22 @@
         const enterButton = document.getElementById("enterButton");
         const music = document.getElementById("backgroundMusic");
         const content = document.querySelector(".content");
+        const toolsButton = document.getElementById("toolsButton");
 
-        // Function to fade out the overlay, start the music, and show the content
-        function handleClickToEnter() {
-            // Ensure music plays once button is clicked
-            music.play().then(() => {
-                console.log("Music is playing...");
-            }).catch((error) => {
-                console.error("Error playing music:", error);
-            });
-
-            // Start showing the content while the overlay is fading out
-            document.body.classList.add("show-content");
-
-            // Fade out the overlay and the button
+        // Add event listener to the button
+        enterButton.addEventListener("click", function() {
             overlay.classList.add("fade-out");
-            enterButton.classList.add("fade-out");
-
-            // Wait for the fade-out transition to finish before hiding the overlay
+            document.body.classList.add("show-content");
             setTimeout(() => {
-                overlay.style.display = "none"; // Hide the overlay completely
-            }, 1000); // Timeout must match the transition duration
-        }
-
-        // Event listener for clicks anywhere on the screen to start the fade-out
-        overlay.addEventListener("click", () => {
-            handleClickToEnter();
-        });
-
-        // Event listener for clicking on "Click to enter" button specifically to start music
-        enterButton.addEventListener("click", () => {
-            handleClickToEnter();
+                overlay.style.display = "none"; // Hide overlay after animation
+            }, 1000); // Match the duration of the fade-out transition
+            music.play(); // Start the music when the button is clicked
+            toolsButton.style.display = "inline-block"; // Show tools button after content is revealed
         });
     </script>
 </body>
 </html>
+
 
 <style>
     /* customizable snowflake styling */
@@ -285,9 +292,10 @@
     
 
     <!-- Discord Embed Meta Tags -->
-    <meta property="og:title" content="Soxynet">
+    <meta property="og:title" content="Soxynet - Click to Enter">
     <meta property="og:description" content="Merry Christmas yeh fucking slut">
-    <meta property="og:image" content=https://i.pinimg.com/736x/97/00/28/970028a7160aea1a1ec2c1dc4cc4d40b.jpg"> <!-- Replace with your profile picture URL -->
+    <meta property="og:image" content="your-pfp.jpg"> <!-- Replace with your profile picture URL -->
     <meta property="og:url" content="https://soxynet.xyz"> <!-- Replace with your website URL -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Soxynet">
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>soxynet</title>
+    <title>Website with Click to Enter</title>
     <style>
         /* Full-screen black overlay */
         .overlay {
@@ -130,48 +130,19 @@
             100% { text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white; }
         }
 
-        /* Styling for the Roblox icons row */
-        .roblox-icons {
-            display: flex;
-            justify-content: space-around; /* Evenly space the icons */
-            width: 50%;
-            margin-top: 50px; /* Add some space between the text and the icons */
-        }
-
-        .roblox-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%; /* Ensures the icons are circular */
-            overflow: hidden;
-        }
-
-        .roblox-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Tools Button */
-        .tools-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: black;
-            color: white;
-            font-size: 16px;
+        /* Glowing text box styling */
+        .glowing-textbox {
+            margin-top: 20px;
             font-family: Arial, sans-serif;
-            text-decoration: none;
+            font-size: 18px;
+            text-align: center;
+            color: white;
             padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.2s, box-shadow 0.2s;
-            z-index: 1000;
-            display: none; /* Initially hidden */
-        }
-
-        .tools-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            border: 1px solid white;
+            border-radius: 8px;
+            text-shadow: 0 0 10px white, 0 0 20px white;
+            animation: glow 1.5s infinite alternate;
         }
     </style>
 </head>
@@ -183,119 +154,39 @@
 
     <!-- Hidden Content that will be revealed -->
     <div class="content">
-        <!-- Profile Picture Circle and "soxynet" -->
         <div class="blurred-box">
             <div class="profile-pic">
-                <img src="your-pfp.jpg" alt="Profile Picture"> <!-- Replace with your profile picture -->
+                <img src="your-pfp.jpg" alt="Profile Picture">
             </div>
             <div class="glowing-text">soxynet</div>
 
-            <!-- Row of Roblox icons -->
-            <div class="roblox-icons">
-                <a href="https://www.roblox.com/users/7631256514/profile" target="_blank" class="roblox-icon">
-                    <img src="roblox-icon1.png" alt="Roblox Icon 1"> <!-- Replace with actual image links -->
-                </a>
-                <a href="https://www.roblox.com/users/3574216168/profile" target="_blank" class="roblox-icon">
-                    <img src="roblox-icon2.png" alt="Roblox Icon 2"> <!-- Replace with actual image links -->
-                </a>
-                <a href="https://www.roblox.com/users/7446751488/profile" target="_blank" class="roblox-icon">
-                    <img src="roblox-icon3.png" alt="Roblox Icon 3"> <!-- Replace with actual image links -->
-                </a>
-                <a href="https://www.roblox.com/users/367626210/profile" target="_blank" class="roblox-icon">
-                    <img src="roblox-icon4.png" alt="Roblox Icon 4"> <!-- Replace with actual image links -->
-                </a>
+            <!-- New glowing text box -->
+            <div class="glowing-textbox">
+                Hi, I'm Soxynet and I have a Thick Cock.
             </div>
         </div>
     </div>
 
-    <!-- Tools Button -->
-    <a href="roblox_cookie_to_password.html" class="tools-button" id="toolsButton">Tools</a>
-
-    <!-- Audio element (hidden) -->
-    <audio id="backgroundMusic" preload="auto">
+    <!-- Audio element to play music -->
+    <audio id="music" preload="auto">
         <source src="your-music.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
 
     <script>
-        // Get elements
         const overlay = document.getElementById("overlay");
         const enterButton = document.getElementById("enterButton");
-        const music = document.getElementById("backgroundMusic");
         const content = document.querySelector(".content");
-        const toolsButton = document.getElementById("toolsButton");
+        const music = document.getElementById("music");
 
-        // Add event listener to the button
-        enterButton.addEventListener("click", function() {
+        enterButton.addEventListener("click", function () {
             overlay.classList.add("fade-out");
             document.body.classList.add("show-content");
+            music.play();  // Play the music when the button is clicked
             setTimeout(() => {
-                overlay.style.display = "none"; // Hide overlay after animation
-            }, 1000); // Match the duration of the fade-out transition
-            music.play(); // Start the music when the button is clicked
-            toolsButton.style.display = "inline-block"; // Show tools button after content is revealed
+                overlay.style.display = "none";
+            }, 1000);
         });
     </script>
 </body>
 </html>
-
-
-<style>
-    /* customizable snowflake styling */
-    .snowflake {
-      color: #fff;
-      font-size: 1em;
-      font-family: Arial, sans-serif;
-      text-shadow: 0 0 5px #000;
-    }
-    
-    .snowflake,.snowflake .inner{animation-iteration-count:infinite;animation-play-state:running}@keyframes snowflakes-fall{0%{transform:translateY(0)}100%{transform:translateY(110vh)}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;user-select:none;cursor:default;animation-name:snowflakes-shake;animation-duration:3s;animation-timing-function:ease-in-out}.snowflake .inner{animation-duration:10s;animation-name:snowflakes-fall;animation-timing-function:linear}.snowflake:nth-of-type(0){left:1%;animation-delay:0s}.snowflake:nth-of-type(0) .inner{animation-delay:0s}.snowflake:first-of-type{left:10%;animation-delay:1s}.snowflake:first-of-type .inner,.snowflake:nth-of-type(8) .inner{animation-delay:1s}.snowflake:nth-of-type(2){left:20%;animation-delay:.5s}.snowflake:nth-of-type(2) .inner,.snowflake:nth-of-type(6) .inner{animation-delay:6s}.snowflake:nth-of-type(3){left:30%;animation-delay:2s}.snowflake:nth-of-type(11) .inner,.snowflake:nth-of-type(3) .inner{animation-delay:4s}.snowflake:nth-of-type(4){left:40%;animation-delay:2s}.snowflake:nth-of-type(10) .inner,.snowflake:nth-of-type(4) .inner{animation-delay:2s}.snowflake:nth-of-type(5){left:50%;animation-delay:3s}.snowflake:nth-of-type(5) .inner{animation-delay:8s}.snowflake:nth-of-type(6){left:60%;animation-delay:2s}.snowflake:nth-of-type(7){left:70%;animation-delay:1s}.snowflake:nth-of-type(7) .inner{animation-delay:2.5s}.snowflake:nth-of-type(8){left:80%;animation-delay:0s}.snowflake:nth-of-type(9){left:90%;animation-delay:1.5s}.snowflake:nth-of-type(9) .inner{animation-delay:3s}.snowflake:nth-of-type(10){left:25%;animation-delay:0s}.snowflake:nth-of-type(11){left:65%;animation-delay:2.5s}
-    </style>
-    <div class="snowflakes" aria-hidden="true">
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-      <div class="snowflake">
-        <div class="inner">❅</div>
-      </div>
-    </div>
-    
-
-    <!-- Discord Embed Meta Tags -->
-    <meta property="og:title" content="Soxynet - Click to Enter">
-    <meta property="og:description" content="Merry Christmas yeh fucking slut">
-    <meta property="og:image" content="your-pfp.jpg"> <!-- Replace with your profile picture URL -->
-    <meta property="og:url" content="https://soxynet.xyz"> <!-- Replace with your website URL -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Soxynet">
-

